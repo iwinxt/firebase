@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_application_firebase/firebase_options.dart';
+import 'firebase_options.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -61,7 +61,18 @@ class MyApp extends StatelessWidget {
           title: Text('Firebase Firestore CRUD'),
         ),
         body: Center(
-          child: Text('Check console for CRUD operations'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Text('Aperte o botão para adicionar na firebase'),
+
+            ElevatedButton(onPressed:() async{
+              await addUser();
+            },
+            child: Text('Usuario adicionado na Firebase'),
+              )
+            ],
+          ),
         ),
       ),
     );
